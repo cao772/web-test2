@@ -17,9 +17,10 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run eval:v17
+      - run: npm run eval:v18
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: v17-evaluation
-          path: eval-results/v17-evaluation.json
-          if-no-files-found: warn
+          name: self-evolution-evaluation
+          path: |
+            eval-results/v17-evaluation.json
+            eval-results/v18-diagnostics.json
