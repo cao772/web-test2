@@ -13,6 +13,7 @@ console.log(JSON.stringify({
   productionCycles:report.productionCycles,
   productionAccepted:report.productionAccepted,
   rejectionBreakdown:report.rejectionBreakdown,
+  topConfigs:report.topConfigs.slice(0,3),
   recommended:report.recommended,
   recommendation:report.recommendation,
   productionChanged:report.productionChanged,
