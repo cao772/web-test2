@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f3e8d4" />
+  <title>小小世界 · V22 评测实验室</title>
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/src/brain-v22.css" />
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas><div class="vignette" aria-hidden="true"></div><div class="grain" aria-hidden="true"></div>
+  <header class="topbar"><div class="brand-card glass"><div class="brand-mark">✦</div><div><div class="brand-row"><strong>小小世界</strong><span class="live-dot">V22 LAB</span></div><p id="statusText">价值影子、门禁归因与分布漂移诊断</p></div></div><div class="controls glass"><a href="/" title="返回可玩模式" style="display:grid;place-items:center;width:40px;height:40px;text-decoration:none;color:inherit">↩</a><button id="cinemaButton" class="active">◉</button><button id="dayButton">☀︎</button><button id="pauseButton">Ⅱ</button><button id="resetButton">⌂</button></div></header>
+  <aside class="toybox glass"><div class="toybox-title"><div><span>玩具百宝箱</span><em id="autoBadge">价值影子诊断</em></div><small>V16 生产策略守护 · V17~V22 评测诊断层</small></div><div id="toyButtons" class="toy-buttons"></div></aside>
+  <aside id="brainPanel" class="brain-panel glass"></aside>
+  <div class="hint glass">这是评测实验室；本地玩请返回首页 /</div><div id="toast" class="toast glass"></div>
+</div>
+<script type="module" src="/src/boot-v22.ts"></script>
+</body>
+</html>
