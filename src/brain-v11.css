@@ -1,0 +1,34 @@
+@import './brain-v10.css';
+
+.reflection-mini {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 7px 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.28);
+  border: 1px solid rgba(255,255,255,.44);
+}
+.reflection-mini span { font-size: 7px; text-align: center; opacity: .58; }
+.shadow-card {
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.38);
+  border: 1px solid rgba(255,255,255,.55);
+}
+.shadow-card.shadowing { box-shadow: inset 0 0 0 1px rgba(148,185,207,.18); }
+.shadow-card.promoted { box-shadow: inset 0 0 0 1px rgba(168,207,193,.38); }
+.shadow-card.rejected { box-shadow: inset 0 0 0 1px rgba(233,130,105,.24); }
+.shadow-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.shadow-head b { font-size: 9px; letter-spacing: .03em; }
+.shadow-head span { font-size: 7.5px; opacity: .6; }
+.shadow-score { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-top: 7px; }
+.shadow-score span { padding: 5px 4px; border-radius: 8px; background: rgba(148,185,207,.08); text-align: center; font-size: 7px; opacity: .68; }
+.shadow-score b { font-size: 8px; }
+.shadow-loss { margin-top: 7px; font-size: 7.5px; opacity: .62; }
+.shadow-card p { margin: 6px 0 0; font-size: 7.5px; line-height: 1.4; opacity: .62; }
+.shadow-card small { display: block; margin-top: 5px; font-size: 7px; opacity: .42; }
+body.night .reflection-mini, body.night .shadow-card { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.08); }
+@media (max-width: 720px) { .reflection-mini, .shadow-card { display: none; } }
