@@ -1,3 +1,5 @@
+export {}
+
 const root=document.documentElement
 root.dataset.playBoot='loading'
 function detail(v:unknown){if(v instanceof Error)return`${v.name}: ${v.message}\n${v.stack??''}`.trim();if(typeof v==='string')return v;try{return JSON.stringify(v,null,2)}catch{return String(v)}}
