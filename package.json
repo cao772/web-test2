@@ -11,6 +11,7 @@
     "eval:v19": "tsx scripts/eval-v19.ts",
     "eval:v20": "tsx scripts/eval-v20.ts",
     "eval:v21": "tsx scripts/eval-v21.ts",
+    "eval:v22": "tsx scripts/eval-v22.ts",
     "preview": "vite preview"
   },
   "dependencies": {
