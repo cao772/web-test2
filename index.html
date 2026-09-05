@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个带 Champion 版本化、自动回滚、自进化评测、Candidate Generator 锦标赛、双生成器正式门禁影子与门禁归因校正的 3D 智能体小世界" />
-    <title>小小世界 · Decision Boundary Diagnostics</title>
-    <link rel="stylesheet" href="/src/brain-v21.css" />
+    <meta name="description" content="一个带 Champion 版本化、自动回滚、自进化评测、Candidate Generator 锦标赛、正式门禁影子、门禁归因校正与价值影子分布漂移诊断的 3D 智能体小世界" />
+    <title>小小世界 · Value Shadow Diagnostics</title>
+    <link rel="stylesheet" href="/src/brain-v22.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V21</span></div>
-            <p id="statusText">重新按正式 V12 原始门槛校正价值影子与 Top-1 决策门归因，再诊断排序边界是否真正发生变化</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V22</span></div>
+            <p id="statusText">拆解 Evolution Strategy 在正式价值影子中的 MSE / 胜场失败，并比较 held-out 到 shadow 的行为与特征分布漂移</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">门禁归因校正</em></div>
-          <small>生产策略仍由 V16 守护 · V17 验证生命周期 · V18 定位反思瓶颈 · V19 发现 ES 离线安全信号 · V20 正式门禁影子 · V21 修正价值/决策阶段归因并分析 Top-1 边界 · 不自动修改生产策略</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">价值影子诊断</em></div>
+          <small>生产策略仍由 V16 守护 · V17 验证生命周期 · V18 定位反思瓶颈 · V19 找到 ES 离线信号 · V20/V21 校正正式价值门 · V22 诊断 MSE、胜场与分布漂移 · 不降低门槛、不用当前 shadow 反向训练</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、Champion 策略、版本注册表、自进化评测、生成器锦标赛、双生成器正式门禁影子与决策边界校正诊断"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、Champion 策略、版本注册表、自进化评测、生成器锦标赛、正式门禁影子、决策边界与价值影子分布诊断"></aside>
 
-      <div class="hint glass">右下角看 V21：3 个 ES 离线 Challenger 实际 0 个通过正式价值影子；30 个后续影子决策 Top-1 分歧仍为 0，但这只是下一层潜在问题，不能替代当前真实失败原因</div>
+      <div class="hint glass">右下角看 V22：3 个 ES Challenger 的胜场并非首要问题；当前真正卡的是 shadow 平均 MSE 改善约 0.19%，低于正式 0.3% 门，同时 held-out→shadow 存在可测分布漂移</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v21.ts"></script>
+    <script type="module" src="/src/main-v22.ts"></script>
   </body>
 </html>
