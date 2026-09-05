@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个通过 Champion 正式策略、Challenger 影子对照和多阶段晋升门进行递归自我改进的 3D 智能体小世界" />
-    <title>小小世界 · Champion Challenger Agent World</title>
-    <link rel="stylesheet" href="/src/brain-v11.css" />
+    <meta name="description" content="一个通过 Champion 正式策略、Challenger 价值影子与 Top-1 决策影子进行多阶段递归自我改进的 3D 智能体小世界" />
+    <title>小小世界 · Decision Shadow Agent World</title>
+    <link rel="stylesheet" href="/src/brain-v12.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V11</span></div>
-            <p id="statusText">Champion 控制真实行为；Challenger 只做影子预测，连续胜出后才允许晋升</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V12</span></div>
+            <p id="statusText">Champion 控制真实行为；Challenger 同时做价值预测和 Top-1 决策影子，两道门都通过才晋升</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">Champion 控制中</em></div>
-          <small>硬规则固定 · 候选先离线过门 · 再进入真实状态影子对照 · 胜出才晋升</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">双重影子评估中</em></div>
+          <small>硬规则固定 · 候选先离线过门 · 再同时做价值影子与策略决策影子 · 双门通过才晋升</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略与 Challenger 影子评估"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略、Challenger 价值影子与 Top-1 决策影子"></aside>
 
-      <div class="hint glass">右下角看 Champion / Challenger 胜场与预测误差 · Challenger 不控制角色 · 10 条影子样本后决定晋升或淘汰</div>
+      <div class="hint glass">右下角看 Champion / Challenger 的价值预测与 Top-1 分歧 · 替代动作只有存在真实历史证据时才参与晋升判断</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v11.ts"></script>
+    <script type="module" src="/src/main-v12.ts"></script>
   </body>
 </html>
