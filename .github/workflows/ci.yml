@@ -21,6 +21,7 @@ jobs:
       - run: npm run eval:v19
       - run: npm run eval:v20
       - run: npm run eval:v21
+      - run: npm run eval:v22
       - uses: actions/upload-artifact@v4
         with:
           name: self-evolution-evaluation
@@ -30,3 +31,4 @@ jobs:
             eval-results/v19-tournament.json
             eval-results/v20-shadow.json
             eval-results/v21-boundary.json
+            eval-results/v22-value-shadow.json
