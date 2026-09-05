@@ -1,0 +1,13 @@
+@import './brain-v20.css';
+
+.boundary-card{grid-column:1/-1;padding:10px;border-radius:15px;background:rgba(255,255,255,.49);border:1px solid rgba(255,255,255,.64)}
+.boundary-card.corrected{box-shadow:inset 0 0 0 1px rgba(196,137,118,.36)}
+.boundary-card.hold{box-shadow:inset 0 0 0 1px rgba(222,187,108,.3)}
+.boundary-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.boundary-head b{font-size:9px;letter-spacing:.03em}.boundary-head span{font-size:7.4px;opacity:.69}
+.boundary-score{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:7px}
+.boundary-score span{padding:5px 3px;border-radius:8px;background:rgba(196,137,118,.07);text-align:center;font-size:6.7px;opacity:.74}.boundary-score b{display:block;margin-top:2px;font-size:8.4px}
+.margin-strip{display:flex;align-items:center;gap:5px;margin-top:7px;padding:6px;border-radius:9px;background:rgba(196,137,118,.07);font-size:6.6px;opacity:.68}.margin-strip span{flex:1}.margin-strip span:last-of-type{text-align:right}.margin-strip i{font-style:normal;opacity:.35}.margin-strip em{font-style:normal;font-size:6.3px;opacity:.7}
+.boundary-card p{margin:7px 0 0;font-size:7.3px;line-height:1.45;opacity:.68}.boundary-cases{display:grid;gap:4px;margin-top:7px}.boundary-case{display:flex;justify-content:space-between;gap:8px;padding:5px 6px;border-radius:8px;background:rgba(196,137,118,.045)}.boundary-case.value-fail{box-shadow:inset 0 0 0 1px rgba(196,137,118,.12)}.boundary-case.value-pass{box-shadow:inset 0 0 0 1px rgba(121,166,151,.18)}.boundary-case span{display:flex;flex-direction:column;gap:1px}.boundary-case b{font-size:6.8px}.boundary-case small,.boundary-case em{font-size:6.25px;line-height:1.35;font-style:normal;opacity:.57}.boundary-case em{text-align:right}.boundary-card>small{display:block;margin-top:6px;font-size:6.6px;line-height:1.4;opacity:.42}.boundary-run{margin-top:8px;width:100%;border:0;border-radius:9px;padding:6px 8px;font:inherit;font-size:7.2px;cursor:pointer;background:rgba(196,137,118,.12);color:inherit}.boundary-run:hover{background:rgba(196,137,118,.19)}.boundary-run:disabled{opacity:.5;cursor:default}
+body.night .boundary-card{background:rgba(255,255,255,.072);border-color:rgba(255,255,255,.1)}body.night .boundary-score span,body.night .margin-strip,body.night .boundary-case{background:rgba(255,255,255,.04)}body.night .boundary-run{background:rgba(196,137,118,.08)}
+@media(max-width:720px){.boundary-card{display:none}}
