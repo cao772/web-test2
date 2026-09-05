@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  server: { port: 5177 },
-  preview: { port: 4177 },
+  server: { host: '127.0.0.1', port: 5177 },
+  preview: { host: '127.0.0.1', port: 4177 },
 })
