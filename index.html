@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个会自主探索、双人协作、递东西、追球和搭积木的 3D 微缩小世界" />
-    <title>小小世界 · Dual Agent 3D Playroom</title>
+    <meta name="description" content="一个会自主探索、发现事故、双人收拾、追逐、传球和社交互动的 3D 微缩小世界" />
+    <title>小小世界 · Autonomous Social 3D Playroom</title>
   </head>
   <body>
     <div id="app">
@@ -18,7 +18,7 @@
           <div class="brand-mark">✦</div>
           <div>
             <div class="brand-row"><strong>小小世界</strong><span class="live-dot">LIVE</span></div>
-            <p id="statusText">陶陶和沫沫正在房间里慢慢逛</p>
+            <p id="statusText">陶陶和沫沫正在自己决定下一步做什么</p>
           </div>
         </div>
 
@@ -33,14 +33,14 @@
       <aside class="toybox glass">
         <div class="toybox-title">
           <div><span>玩具百宝箱</span><em id="autoBadge">双人自主中</em></div>
-          <small>会协作、会递东西、会追球</small>
+          <small>会收拾、会追逐、会传球、会打招呼</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <div class="hint glass">点积木看双人传递搭建 · 点球一起追 · 点角色可切换跟随镜头</div>
+      <div class="hint glass">球撞散积木后会自动收拾 · 可点追逐/招手 · 点角色切换跟随镜头</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v5.ts"></script>
+    <script type="module" src="/src/main-v6.ts"></script>
   </body>
 </html>
