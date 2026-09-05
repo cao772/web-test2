@@ -1,0 +1,34 @@
+@import './brain-v16.css';
+
+.eval-card {
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.46);
+  border: 1px solid rgba(255,255,255,.63);
+}
+.eval-card.improved { box-shadow: inset 0 0 0 1px rgba(168,207,193,.52); }
+.eval-card.inconclusive { box-shadow: inset 0 0 0 1px rgba(222,187,108,.35); }
+.eval-card.regressed { box-shadow: inset 0 0 0 1px rgba(233,130,105,.36); }
+.eval-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.eval-head b { font-size:9px; letter-spacing:.03em; }
+.eval-head span { font-size:7.5px; opacity:.68; }
+.eval-score { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:7px; }
+.eval-score span { padding:5px 4px; border-radius:8px; background:rgba(222,187,108,.09); text-align:center; font-size:7px; opacity:.75; }
+.eval-score b { font-size:8px; }
+.eval-trend { margin-top:7px; font-size:7.5px; opacity:.69; }
+.eval-trend b { color:#8d712f; }
+.eval-card p { margin:6px 0 0; font-size:7.5px; line-height:1.4; opacity:.66; }
+.eval-checks { display:flex; flex-wrap:wrap; gap:4px; margin-top:7px; }
+.eval-checks span { padding:3px 5px; border-radius:999px; font-size:6.6px; background:rgba(255,255,255,.34); opacity:.62; }
+.eval-checks .pass { color:#56766b; }
+.eval-checks .fail { color:#a65f4d; }
+.eval-card small { display:block; margin-top:6px; font-size:6.7px; line-height:1.4; opacity:.42; }
+.eval-run { margin-top:8px; width:100%; border:0; border-radius:9px; padding:6px 8px; font:inherit; font-size:7.2px; cursor:pointer; background:rgba(222,187,108,.16); color:inherit; }
+.eval-run:hover { background:rgba(222,187,108,.23); }
+.eval-run:disabled { opacity:.5; cursor:default; }
+body.night .eval-card { background:rgba(255,255,255,.068); border-color:rgba(255,255,255,.1); }
+body.night .eval-trend b { color:#ead59a; }
+body.night .eval-checks span { background:rgba(255,255,255,.045); }
+body.night .eval-run { background:rgba(222,187,108,.1); }
+@media (max-width:720px) { .eval-card { display:none; } }
