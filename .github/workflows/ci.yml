@@ -16,6 +16,7 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npm run build
+      - run: npm run check:play
       - run: npm run eval:v17
       - run: npm run eval:v18
       - run: npm run eval:v19
