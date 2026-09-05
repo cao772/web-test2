@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个通过真实决策回放、候选策略评估与晋升门槛进行递归自我改进的 3D 智能体小世界" />
-    <title>小小世界 · Reflection-Gated Agent World</title>
-    <link rel="stylesheet" href="/src/brain-v10.css" />
+    <meta name="description" content="一个通过 Champion 正式策略、Challenger 影子对照和多阶段晋升门进行递归自我改进的 3D 智能体小世界" />
+    <title>小小世界 · Champion Challenger Agent World</title>
+    <link rel="stylesheet" href="/src/brain-v11.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V10</span></div>
-            <p id="statusText">陶陶和沫沫先积累真实决策，再让候选策略通过回放评估后才晋升</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V11</span></div>
+            <p id="statusText">Champion 控制真实行为；Challenger 只做影子预测，连续胜出后才允许晋升</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">反思门控中</em></div>
-          <small>硬规则固定 · 真实样本积累 · 候选策略先回放评估再晋升</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">Champion 控制中</em></div>
+          <small>硬规则固定 · 候选先离线过门 · 再进入真实状态影子对照 · 胜出才晋升</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Planner 策略与反思评估"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略与 Challenger 影子评估"></aside>
 
-      <div class="hint glass">右下角看反思周期、候选误差与晋升结果 · 8 条自主决策形成一批回放 · 候选不够好就明确拒绝</div>
+      <div class="hint glass">右下角看 Champion / Challenger 胜场与预测误差 · Challenger 不控制角色 · 10 条影子样本后决定晋升或淘汰</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v10.ts"></script>
+    <script type="module" src="/src/main-v11.ts"></script>
   </body>
 </html>
