@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个会学习自身 Planner 权重、保留长期记忆并受边界约束的 3D 自改进智能体小世界" />
-    <title>小小世界 · Strategy Learning Agent World</title>
-    <link rel="stylesheet" href="/src/brain-v9.css" />
+    <meta name="description" content="一个通过真实决策回放、候选策略评估与晋升门槛进行递归自我改进的 3D 智能体小世界" />
+    <title>小小世界 · Reflection-Gated Agent World</title>
+    <link rel="stylesheet" href="/src/brain-v10.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V9</span></div>
-            <p id="statusText">陶陶和沫沫会记录 Planner 为什么这样选，并用结果微调决策策略</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V10</span></div>
+            <p id="statusText">陶陶和沫沫先积累真实决策，再让候选策略通过回放评估后才晋升</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">策略学习中</em></div>
-          <small>硬规则固定 · 软策略根据长期回报受控自我调整</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">反思门控中</em></div>
+          <small>硬规则固定 · 真实样本积累 · 候选策略先回放评估再晋升</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆与 Planner 策略学习"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Planner 策略与反思评估"></aside>
 
-      <div class="hint glass">右下角看 Planner 权重与最近策略回报 · 手动点击只教偏好，不修改决策策略 · 学习结果刷新后保留</div>
+      <div class="hint glass">右下角看反思周期、候选误差与晋升结果 · 8 条自主决策形成一批回放 · 候选不够好就明确拒绝</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v9.ts"></script>
+    <script type="module" src="/src/main-v10.ts"></script>
   </body>
 </html>
