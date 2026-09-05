@@ -1,0 +1,33 @@
+@import './brain-v17.css';
+
+.diagnostic-card {
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.47);
+  border: 1px solid rgba(255,255,255,.64);
+}
+.diagnostic-card.hold { box-shadow: inset 0 0 0 1px rgba(222,187,108,.34); }
+.diagnostic-card.candidate { box-shadow: inset 0 0 0 1px rgba(168,207,193,.5); }
+.diagnostic-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.diagnostic-head b { font-size:9px; letter-spacing:.03em; }
+.diagnostic-head span { font-size:7.5px; opacity:.68; }
+.diagnostic-score { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:7px; }
+.diagnostic-score span { padding:5px 4px; border-radius:8px; background:rgba(199,170,111,.09); text-align:center; font-size:7px; opacity:.75; }
+.diagnostic-score b { font-size:8px; }
+.rejection-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; margin-top:6px; }
+.rejection-grid span { padding:4px 3px; border-radius:7px; background:rgba(255,255,255,.28); text-align:center; font-size:6.4px; opacity:.62; }
+.rejection-grid b { display:block; margin-top:2px; font-size:8px; }
+.diagnostic-card p { margin:7px 0 0; font-size:7.4px; line-height:1.45; opacity:.67; }
+.sweep-list { display:grid; gap:4px; margin-top:7px; }
+.sweep-row { display:flex; justify-content:space-between; gap:8px; padding:5px 6px; border-radius:8px; background:rgba(199,170,111,.055); }
+.sweep-row span,.sweep-row em { font-size:6.6px; font-style:normal; opacity:.58; }
+.sweep-row em { text-align:right; }
+.diagnostic-card small { display:block; margin-top:6px; font-size:6.7px; line-height:1.4; opacity:.42; }
+.diagnostic-run { margin-top:8px; width:100%; border:0; border-radius:9px; padding:6px 8px; font:inherit; font-size:7.2px; cursor:pointer; background:rgba(199,170,111,.15); color:inherit; }
+.diagnostic-run:hover { background:rgba(199,170,111,.22); }
+.diagnostic-run:disabled { opacity:.5; cursor:default; }
+body.night .diagnostic-card { background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.1); }
+body.night .rejection-grid span,body.night .sweep-row { background:rgba(255,255,255,.04); }
+body.night .diagnostic-run { background:rgba(199,170,111,.09); }
+@media (max-width:720px) { .diagnostic-card { display:none; } }
