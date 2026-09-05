@@ -89,11 +89,12 @@ function initialVersion(s:V15StrategyState):PolicyVersion{return{
 }}
 function blankRegistry(s:V15StrategyState):PolicyRegistryState{const v=initialVersion(s);return{currentVersion:1,versions:[v],observation:null,rollbacks:0,last:{status:'stable',currentVersion:1,fallbackVersion:1,samples:0,avgReward:v.observedReward,baselineReward:v.baselineReward,delta:0,kinds:0,reason:'Champion v1 已登记为初始稳定版本',at:Date.now()}}}
 function cleanMetrics(raw:unknown):GateMetrics{const r=raw as Partial<GateMetrics>|null|undefined;return{offlineImprovement:finite(r?.offlineImprovement,0),valueImprovement:finite(r?.valueImprovement,0),challengerWins:Math.max(0,Math.floor(finite(r?.challengerWins,0))),decisionGain:finite(r?.decisionGain,0),contextGain:finite(r?.contextGain,0),trajectoryGain:finite(r?.trajectoryGain,0),transitionGain:finite(r?.transitionGain,0),transitionConfidence:clamp01(finite(r?.transitionConfidence,0))}}
+function cleanStatus(v:unknown):PolicyVersionStatus{return v==='observing'||v==='rolled_back'||v==='stable'?v:'stable'}
 function hydrateRegistry(raw:unknown,s:V15StrategyState):PolicyRegistryState{
   const fallback=blankRegistry(s),r=raw as Partial<PolicyRegistryState>|null|undefined
   if(!r||typeof r!=='object')return fallback
-  const versions=Array.isArray(r.versions)?r.versions.filter(v=>v&&Number.isFinite(v.version)&&v.weights).slice(-MAX_VERSIONS).map(v=>({
-    version:Math.max(1,Math.floor(v.version)),weights:cloneWeights(v.weights),status:v.status==='observing'||v.status==='rolled_back'?'status' in v?v.status:'stable':'stable',sourceCycle:Math.max(0,Math.floor(finite(v.sourceCycle,0))),promotedAt:finite(v.promotedAt,Date.now()),stableAt:v.stableAt===null?null:finite(v.stableAt,Date.now()),baselineReward:clamp01(finite(v.baselineReward,.5)),observedReward:clamp01(finite(v.observedReward,.5)),observedSamples:Math.max(0,Math.floor(finite(v.observedSamples,0))),metrics:cleanMetrics(v.metrics),note:typeof v.note==='string'?v.note:''
+  const versions:PolicyVersion[]=Array.isArray(r.versions)?r.versions.filter(v=>v&&Number.isFinite(v.version)&&v.weights).slice(-MAX_VERSIONS).map((v):PolicyVersion=>({
+    version:Math.max(1,Math.floor(v.version)),weights:cloneWeights(v.weights),status:cleanStatus(v.status),sourceCycle:Math.max(0,Math.floor(finite(v.sourceCycle,0))),promotedAt:finite(v.promotedAt,Date.now()),stableAt:v.stableAt===null?null:finite(v.stableAt,Date.now()),baselineReward:clamp01(finite(v.baselineReward,.5)),observedReward:clamp01(finite(v.observedReward,.5)),observedSamples:Math.max(0,Math.floor(finite(v.observedSamples,0))),metrics:cleanMetrics(v.metrics),note:typeof v.note==='string'?v.note:''
   })):[fallback.versions[0]]
   if(!versions.length)versions.push(fallback.versions[0])
   const currentVersion=Math.max(1,Math.floor(finite(r.currentVersion,versions[versions.length-1].version)))
