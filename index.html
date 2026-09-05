@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个通过 Champion 版本化、Challenger 多阶段影子评估、上下文反事实、短期轨迹世界模型、显式状态转移 rollout 与自动回滚进行递归自我改进的 3D 智能体小世界" />
-    <title>小小世界 · Versioned Champion Agent</title>
-    <link rel="stylesheet" href="/src/brain-v16.css" />
+    <meta name="description" content="一个带 Champion 版本化、Challenger 多阶段门禁、自动回滚与固定随机种子自进化评测实验室的 3D 智能体小世界" />
+    <title>小小世界 · Self-Evolution Evaluation Lab</title>
+    <link rel="stylesheet" href="/src/brain-v17.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V16</span></div>
-            <p id="statusText">Champion 已版本化；新版本通过全部门禁后还要观察真实表现，持续退化会自动回滚到上一个稳定版本</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V17</span></div>
+            <p id="statusText">固定随机种子隔离长跑，直接验证 Challenger、版本稳定、自动回滚和长期真实回报趋势</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">版本守护中</em></div>
-          <small>硬规则固定 · 多阶段 Challenger 门禁 · Champion 版本快照 · 12条真实稳定性观察 · 退化自动回滚 · 稳定后才开放下一代</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">自进化评测中</em></div>
+          <small>生产策略仍由 V16 守护 · V17 隔离评测不改真实 Champion · 固定种子 · 240轮长跑 · 生命周期断言 · JSON 评测报告</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略、Challenger 多阶段影子评估、状态世界模型、Champion 版本注册表与自动回滚"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、Champion 策略、版本注册表、自动回滚与自进化评测实验室"></aside>
 
-      <div class="hint glass">右下角看 Champion 版本注册表 · 新版本观察期冻结下一代 Challenger · 12条真实决策后稳定或自动回滚到上一安全版本</div>
+      <div class="hint glass">右下角看自进化评测实验室 · 生命周期通过不等于长期改善已证明 · 当前基准会直接显示真实长跑结论</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v16.ts"></script>
+    <script type="module" src="/src/main-v17.ts"></script>
   </body>
 </html>
