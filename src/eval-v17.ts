@@ -13,7 +13,8 @@ import {
 
 export type EvalCheck={name:string;pass:boolean;detail:string}
 export type LongRunSummary={seed:number;rounds:number;firstAvg:number;lastAvg:number;delta:number;reflectionCycles:number;reflectionAccepted:number;reflectionRejected:number;shadowPromoted:number;shadowRejected:number;versions:number;currentVersion:number;rollbacks:number;transitionCount:number;trajectoryCount:number;contextCount:number;actionDigest:string}
-export type V17EvaluationReport={version:'V17';seed:number;rounds:number;passed:boolean;checks:EvalCheck[];longRun:LongRunSummary;repeatRun:LongRunSummary;generatedAt:string}
+export type BehavioralVerdict='improved'|'stable-no-evolution'|'regressed'
+export type V17EvaluationReport={version:'V17';seed:number;rounds:number;passed:boolean;improvementDemonstrated:boolean;behavioralVerdict:BehavioralVerdict;behavioralReason:string;checks:EvalCheck[];longRun:LongRunSummary;repeatRun:LongRunSummary;generatedAt:string}
 
 const clamp01=(v:number)=>Math.min(1,Math.max(0,v))
 function mulberry32(seed:number){let a=seed>>>0;return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
@@ -51,7 +52,7 @@ function rollbackCheck():EvalCheck{const s=observingState(.70),fallback={...s.po
 function chooseToy(s:StrategyState,actor:string,round:number,rng:()=>number){const defs=[['music','木琴'],['books','绘本'],['train','小火车'],['jelly','果冻']] as const;const candidates=defs.map(([key,label],i)=>{const f={play:clamp01(.42+rng()*.45),curiosity:clamp01(.35+rng()*.5),preference:clamp01(.3+rng()*.55),satisfaction:clamp01(.35+rng()*.5),novelty:clamp01(.3+rng()*.6),repeat:clamp01((round+i)%5===0?.65:rng()*.35)};return{kind:'toy' as const,actor,key,label,features:f,championScore:toyStrategyScore(s,f)}});return candidates.sort((a,b)=>b.championScore-a.championScore)}
 function chooseSocial(s:StrategyState,rng:()=>number){const defs=[['social:pass','传球',0],['social:tag','追逐',1],['social:wave','招手',0]] as const;const candidates=defs.map(([key,label,isTag])=>{const f={social:clamp01(.4+rng()*.5),play:clamp01(.35+rng()*.5),preference:clamp01(.3+rng()*.55),satisfaction:clamp01(.35+rng()*.5),repeat:clamp01(rng()*.35),isTag};return{kind:'social' as const,actor:'双人',key,label,features:f,championScore:socialStrategyScore(s,f)}});return candidates.sort((a,b)=>b.championScore-a.championScore)}
 function oracleReward(c:DecisionCandidate,rng:()=>number){const f=c.features;let v=.32;if(c.kind==='toy'){v+=.22*(f.play??0)+.18*(f.curiosity??0)+.12*(f.preference??0)+.08*(f.novelty??0)-.13*(f.repeat??0);if(c.key==='music')v+=.025;if(c.key==='books')v+=.015}else if(c.kind==='social'){v+=.25*(f.social??0)+.13*(f.play??0)+.1*(f.preference??0)-.12*(f.repeat??0)+.025*(f.isTag??0)}else v=.28+.58*(f.rest??0);v+=(rng()-.5)*.04;return clamp01(v)}
-function digest(actions:string[]){let h=2166136261>>>0;for(const text of actions){for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)}}return h.toString(16).padStart(8,'0')}
+function digest(actions:string[]){let h=2166136261>>>0;for(const text of actions){for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619)>>>0}}return h.toString(16).padStart(8,'0')}
 
 export function runSeededLongEvaluation(seed=17017,rounds=240):LongRunSummary{
   const rng=mulberry32(seed),s=createStrategy(),rewards:number[]=[],actions:string[]=[],start=3_000_000
@@ -73,5 +74,9 @@ export function runV17Evaluation(seed=17017,rounds=240):V17EvaluationReport{
   const deterministic=longRun.actionDigest===repeatRun.actionDigest&&Math.abs(longRun.firstAvg-repeatRun.firstAvg)<1e-12&&Math.abs(longRun.lastAvg-repeatRun.lastAvg)<1e-12
   checks.push({name:'固定随机种子可重复',pass:deterministic,detail:`digest=${longRun.actionDigest}/${repeatRun.actionDigest}, delta=${longRun.delta.toFixed(4)}`})
   checks.push({name:'长跑真实经验链持续积累',pass:longRun.transitionCount>20&&longRun.trajectoryCount>20&&longRun.contextCount>20,detail:`transition=${longRun.transitionCount}, trajectory=${longRun.trajectoryCount}, context=${longRun.contextCount}`})
-  return{version:'V17',seed,rounds,passed:checks.every(x=>x.pass),checks,longRun,repeatRun,generatedAt:new Date().toISOString()}
+  checks.push({name:'长跑没有明显退化',pass:longRun.delta>-.03,detail:`first=${longRun.firstAvg.toFixed(4)}, last=${longRun.lastAvg.toFixed(4)}, delta=${longRun.delta.toFixed(4)}`})
+  const improvementDemonstrated=longRun.delta>.01&&(longRun.shadowPromoted>0||longRun.versions>1)
+  const behavioralVerdict:BehavioralVerdict=improvementDemonstrated?'improved':longRun.delta<-.03?'regressed':'stable-no-evolution'
+  const behavioralReason=behavioralVerdict==='improved'?`长跑回报提升 ${(longRun.delta*100).toFixed(2)}%，且出现自然策略晋升`:behavioralVerdict==='regressed'?`长跑回报下降 ${(Math.abs(longRun.delta)*100).toFixed(2)}%，超过 3% 退化线`:`长跑回报变化 ${(longRun.delta*100).toFixed(2)}%，但 ${longRun.reflectionCycles} 次反思中自然晋升 ${longRun.shadowPromoted} 次；当前只能证明稳定与安全门有效，不能证明长期自我改进`
+  return{version:'V17',seed,rounds,passed:checks.every(x=>x.pass),improvementDemonstrated,behavioralVerdict,behavioralReason,checks,longRun,repeatRun,generatedAt:new Date().toISOString()}
 }
