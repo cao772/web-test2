@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3e8d4" />
+    <meta name="description" content="一个可自由探索的 3D 微缩玩耍空间" />
+    <title>小小世界 · 3D Playroom</title>
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene"></canvas>
+      <div class="grain" aria-hidden="true"></div>
+
+      <header class="topbar">
+        <div class="brand-card glass">
+          <div class="brand-mark">✦</div>
+          <div>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">LIVE</span></div>
+            <p id="statusText">正在房间里慢慢逛</p>
+          </div>
+        </div>
+
+        <div class="controls glass" aria-label="场景控制">
+          <button id="dayButton" title="切换昼夜">☀︎</button>
+          <button id="pauseButton" title="暂停探索">Ⅱ</button>
+          <button id="resetButton" title="恢复镜头">⌂</button>
+        </div>
+      </header>
+
+      <aside class="toybox glass">
+        <div class="toybox-title"><span>玩具百宝箱</span><small>点一下，TA 会过去</small></div>
+        <div id="toyButtons" class="toy-buttons"></div>
+      </aside>
+
+      <div class="hint glass">拖动旋转 · 滚轮缩放 · 点击玩具</div>
+      <div id="toast" class="toast glass" role="status"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
