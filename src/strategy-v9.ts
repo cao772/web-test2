@@ -1,4 +1,4 @@
-import {bindStrategyForInference,createStrategy as createV12,makeDecision,reportDecisionReward,socialStrategyScore,strategySummary,toyStrategyScore,type DecisionTrace,type StrategyState} from './strategy-v12'
+import {bindStrategyForInference,createStrategy as createV13,makeDecision,reportDecisionReward,socialStrategyScore,strategySummary,toyStrategyScore,type DecisionTrace,type StrategyState} from './strategy-v13'
 export {makeDecision,reportDecisionReward,socialStrategyScore,strategySummary,toyStrategyScore}
 export type {DecisionTrace,StrategyState}
-export function createStrategy(raw?:Partial<StrategyState>|null){return bindStrategyForInference(createV12(raw))}
+export function createStrategy(raw?:Partial<StrategyState>|null){return bindStrategyForInference(createV13(raw))}
