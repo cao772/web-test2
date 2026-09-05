@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个通过 Champion 正式策略、Challenger 多阶段影子评估、上下文反事实与真实3步短轨迹世界模型进行递归自我改进的 3D 智能体小世界" />
-    <title>小小世界 · Short-Horizon World Model Agent</title>
-    <link rel="stylesheet" href="/src/brain-v14.css" />
+    <meta name="description" content="一个通过 Champion 正式策略、Challenger 多阶段影子评估、上下文反事实、短期轨迹世界模型与显式状态转移 rollout 进行递归自我改进的 3D 智能体小世界" />
+    <title>小小世界 · Explicit State Transition Agent</title>
+    <link rel="stylesheet" href="/src/brain-v15.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V14</span></div>
-            <p id="statusText">Champion 控制真实行为；Challenger 还必须在真实3步短轨迹上证明未来总回报更好</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V15</span></div>
+            <p id="statusText">Champion 控制真实行为；Challenger 还要通过显式状态转移模型，两步 rollout 后的需求状态更优才允许最终晋升</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">3步世界模型门控中</em></div>
-          <small>硬规则固定 · 离线留出 · 价值影子 · Top-1 决策影子 · 上下文近邻 · 3步真实轨迹 · 全部门通过才晋升</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">状态转移 rollout 中</em></div>
+          <small>硬规则固定 · 离线留出 · 价值影子 · Top-1 决策影子 · 上下文近邻 · 3步真实轨迹 · 显式状态转移 · 全部门通过才晋升</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略、Challenger 多阶段影子评估、上下文反事实与3步经验世界模型"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆、Champion 策略、Challenger 多阶段影子评估、上下文反事实、3步经验世界模型与显式状态转移 rollout"></aside>
 
-      <div class="hint glass">右下角看3步经验世界模型 · 只使用真实连续轨迹估计短期后果 · 轨迹证据不足时 Challenger 不允许晋升</div>
+      <div class="hint glass">右下角看显式状态转移 · 只在真实可观测需求维度上学习 S + A → S′ · 缺失状态不补造，双步转移证据不足时 Challenger 不允许晋升</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v14.ts"></script>
+    <script type="module" src="/src/main-v15.ts"></script>
   </body>
 </html>
