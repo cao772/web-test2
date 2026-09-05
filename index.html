@@ -6,6 +6,7 @@
     <meta name="theme-color" content="#f3e8d4" />
     <meta name="description" content="一个带 Champion 版本化、自动回滚、自进化评测、Candidate Generator 锦标赛、正式门禁影子、门禁归因校正与价值影子分布漂移诊断的 3D 智能体小世界" />
     <title>小小世界 · Value Shadow Diagnostics</title>
+    <link rel="stylesheet" href="/src/style.css" />
     <link rel="stylesheet" href="/src/brain-v22.css" />
   </head>
   <body>
@@ -43,7 +44,8 @@
 
       <div class="hint glass">右下角看 V22：3 个 ES Challenger 的胜场并非首要问题；当前真正卡的是 shadow 平均 MSE 改善约 0.19%，低于正式 0.3% 门，同时 held-out→shadow 存在可测分布漂移</div>
       <div id="toast" class="toast glass" role="status"></div>
+      <noscript>此页面需要启用 JavaScript 才能运行 3D 场景与智能体。</noscript>
     </div>
-    <script type="module" src="/src/main-v22.ts"></script>
+    <script type="module" src="/src/boot-v22.ts"></script>
   </body>
 </html>
