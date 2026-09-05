@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个会自主探索、发现事故、双人收拾、追逐、传球和社交互动的 3D 微缩小世界" />
-    <title>小小世界 · Autonomous Social 3D Playroom</title>
+    <meta name="description" content="一个拥有角色需求、记忆、个性偏好与自主决策的 3D 微缩小世界" />
+    <title>小小世界 · Needs & Memory Agent World</title>
+    <link rel="stylesheet" href="/src/brain-v7.css" />
   </head>
   <body>
     <div id="app">
@@ -17,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">LIVE</span></div>
-            <p id="statusText">陶陶和沫沫正在自己决定下一步做什么</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V7</span></div>
+            <p id="statusText">陶陶和沫沫会根据自己的需求、记忆和偏好决定下一步</p>
           </div>
         </div>
 
@@ -32,15 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">双人自主中</em></div>
-          <small>会收拾、会追逐、会传球、会打招呼</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">需求驱动中</em></div>
+          <small>世界事件优先 · 再按需求和偏好决策</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <div class="hint glass">球撞散积木后会自动收拾 · 可点追逐/招手 · 点角色切换跟随镜头</div>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求与记忆"></aside>
+
+      <div class="hint glass">右下角看两个人当前需求 · 最近做过的事会降低重复概率 · 累了会自己去沙发休息</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v6.ts"></script>
+    <script type="module" src="/src/main-v7.ts"></script>
   </body>
 </html>
