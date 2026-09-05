@@ -1,51 +1,27 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个带 Champion 版本化、自动回滚、自进化评测、Candidate Generator 锦标赛、正式门禁影子、门禁归因校正与价值影子分布漂移诊断的 3D 智能体小世界" />
-    <title>小小世界 · Value Shadow Diagnostics</title>
-    <link rel="stylesheet" href="/src/style.css" />
-    <link rel="stylesheet" href="/src/brain-v22.css" />
-  </head>
-  <body>
-    <div id="app">
-      <canvas id="scene"></canvas>
-      <div class="vignette" aria-hidden="true"></div>
-      <div class="grain" aria-hidden="true"></div>
-
-      <header class="topbar">
-        <div class="brand-card glass">
-          <div class="brand-mark">✦</div>
-          <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V22</span></div>
-            <p id="statusText">拆解 Evolution Strategy 在正式价值影子中的 MSE / 胜场失败，并比较 held-out 到 shadow 的行为与特征分布漂移</p>
-          </div>
-        </div>
-
-        <div class="controls glass" aria-label="场景控制">
-          <button id="cinemaButton" class="active" title="电影镜头">◉</button>
-          <button id="dayButton" title="切换昼夜">☀︎</button>
-          <button id="pauseButton" title="暂停探索">Ⅱ</button>
-          <button id="resetButton" title="恢复镜头">⌂</button>
-        </div>
-      </header>
-
-      <aside class="toybox glass">
-        <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">价值影子诊断</em></div>
-          <small>生产策略仍由 V16 守护 · V17 验证生命周期 · V18 定位反思瓶颈 · V19 找到 ES 离线信号 · V20/V21 校正正式价值门 · V22 诊断 MSE、胜场与分布漂移 · 不降低门槛、不用当前 shadow 反向训练</small>
-        </div>
-        <div id="toyButtons" class="toy-buttons"></div>
-      </aside>
-
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、Champion 策略、版本注册表、自进化评测、生成器锦标赛、正式门禁影子、决策边界与价值影子分布诊断"></aside>
-
-      <div class="hint glass">右下角看 V22：3 个 ES Challenger 的胜场并非首要问题；当前真正卡的是 shadow 平均 MSE 改善约 0.19%，低于正式 0.3% 门，同时 held-out→shadow 存在可测分布漂移</div>
-      <div id="toast" class="toast glass" role="status"></div>
-      <noscript>此页面需要启用 JavaScript 才能运行 3D 场景与智能体。</noscript>
-    </div>
-    <script type="module" src="/src/boot-v22.ts"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#efe2cc" />
+  <meta name="description" content="小小世界稳定可玩模式：两个自主角色、玩具互动、V16 策略评分与独立 V22 评测实验室。" />
+  <title>小小世界 · Play Mode</title>
+  <link rel="stylesheet" href="/src/play.css" />
+</head>
+<body>
+<div id="app">
+  <canvas id="scene"></canvas><div class="play-vignette" aria-hidden="true"></div>
+  <div id="playBoot" class="glass">正在启动 3D 小世界…</div>
+  <header class="play-top">
+    <div class="brand glass"><div class="brand-mark">✦</div><div><div class="brand-line"><strong>小小世界</strong><span class="badge">PLAY</span></div><p id="statusText">正在启动两个自主角色…</p></div></div>
+    <div class="play-controls glass" aria-label="场景控制"><button id="cinemaButton" class="active" title="电影镜头">◉</button><button id="dayButton" title="昼夜">☀︎</button><button id="pauseButton" title="暂停自主行动">Ⅱ</button><button id="resetButton" title="镜头复位">⌂</button><a href="/lab.html" title="V22 评测实验室">⌁</a></div>
+  </header>
+  <aside class="toy-dock glass"><div class="dock-head"><b>玩具百宝箱</b><span>先点右侧角色，再点玩具</span></div><div id="toyGrid" class="toy-grid"></div></aside>
+  <aside id="brain" class="brain glass"><div class="brain-title"><b>角色状态</b><span>加载 V16 策略评分中…</span></div></aside>
+  <div class="play-hint glass">拖动旋转 · 滚轮缩放 · 角色会自己玩 · 左下可手动派玩具 · ⌁ 打开 V22 实验室</div>
+  <div id="toast" class="toast glass"></div>
+  <noscript>请启用 JavaScript 运行 3D 小世界。</noscript>
+</div>
+<script type="module" src="/src/boot-play.ts"></script>
+</body>
 </html>
