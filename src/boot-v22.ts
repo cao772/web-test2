@@ -1,3 +1,5 @@
+export {}
+
 const root = document.documentElement
 root.dataset.appBoot = 'loading'
 
