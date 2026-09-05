@@ -1,0 +1,26 @@
+@import './brain-v14.css';
+
+.transition-card {
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.43);
+  border: 1px solid rgba(255,255,255,.61);
+}
+.transition-card.shadowing { box-shadow: inset 0 0 0 1px rgba(168,207,193,.26); }
+.transition-card.promoted { box-shadow: inset 0 0 0 1px rgba(168,207,193,.48); }
+.transition-card.rejected { box-shadow: inset 0 0 0 1px rgba(233,130,105,.3); }
+.transition-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.transition-head b { font-size: 9px; letter-spacing: .03em; }
+.transition-head span { font-size: 7.5px; opacity: .64; }
+.transition-score { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; margin-top: 7px; }
+.transition-score span { padding: 5px 4px; border-radius: 8px; background: rgba(168,207,193,.1); text-align: center; font-size: 7px; opacity: .73; }
+.transition-score b { font-size: 8px; }
+.transition-gain { margin-top: 7px; font-size: 7.5px; opacity: .68; }
+.transition-gain b { color: #617f74; }
+.transition-card p { margin: 6px 0 0; font-size: 7.5px; line-height: 1.4; opacity: .64; }
+.transition-card small { display: block; margin-top: 5px; font-size: 7px; line-height: 1.4; opacity: .49; }
+.transition-card em { display: block; margin-top: 5px; font-size: 6.8px; font-style: normal; opacity: .4; }
+body.night .transition-card { background: rgba(255,255,255,.062); border-color: rgba(255,255,255,.09); }
+body.night .transition-gain b { color: #bad8cc; }
+@media (max-width: 720px) { .transition-card { display: none; } }
