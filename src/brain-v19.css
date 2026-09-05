@@ -1,0 +1,38 @@
+@import './brain-v18.css';
+
+.generator-card {
+  grid-column: 1 / -1;
+  padding: 10px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.48);
+  border: 1px solid rgba(255,255,255,.64);
+}
+.generator-card.qualified { box-shadow: inset 0 0 0 1px rgba(168,207,193,.56); }
+.generator-card.hold { box-shadow: inset 0 0 0 1px rgba(222,187,108,.34); }
+.generator-head { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+.generator-head b { font-size:9px; letter-spacing:.03em; }
+.generator-head span { font-size:7.5px; opacity:.68; }
+.generator-score { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:7px; }
+.generator-score span { padding:5px 4px; border-radius:8px; background:rgba(121,166,151,.09); text-align:center; font-size:7px; opacity:.76; }
+.generator-score b { font-size:8px; }
+.generator-winner { margin-top:7px; padding:6px 7px; border-radius:9px; background:rgba(121,166,151,.11); font-size:7.3px; line-height:1.4; opacity:.72; }
+.generator-winner b { color:#56766b; }
+.generator-card p { margin:7px 0 0; font-size:7.4px; line-height:1.45; opacity:.67; }
+.generator-list { display:grid; gap:4px; margin-top:7px; }
+.generator-row { display:flex; justify-content:space-between; gap:8px; padding:5px 6px; border-radius:8px; background:rgba(121,166,151,.05); }
+.generator-row.winner { box-shadow: inset 0 0 0 1px rgba(121,166,151,.24); background:rgba(121,166,151,.09); }
+.generator-row.signal { background:rgba(222,187,108,.07); }
+.generator-row span { display:flex; flex-direction:column; gap:1px; }
+.generator-row span b { font-size:6.9px; }
+.generator-row span small,.generator-row em { font-size:6.4px; font-style:normal; opacity:.56; line-height:1.35; }
+.generator-row em { text-align:right; }
+.generator-card > small { display:block; margin-top:6px; font-size:6.7px; line-height:1.4; opacity:.42; }
+.generator-run { margin-top:8px; width:100%; border:0; border-radius:9px; padding:6px 8px; font:inherit; font-size:7.2px; cursor:pointer; background:rgba(121,166,151,.14); color:inherit; }
+.generator-run:hover { background:rgba(121,166,151,.21); }
+.generator-run:disabled { opacity:.5; cursor:default; }
+body.night .generator-card { background:rgba(255,255,255,.072); border-color:rgba(255,255,255,.1); }
+body.night .generator-row { background:rgba(255,255,255,.04); }
+body.night .generator-row.winner { background:rgba(121,166,151,.09); }
+body.night .generator-winner { background:rgba(121,166,151,.08); }
+body.night .generator-run { background:rgba(121,166,151,.09); }
+@media (max-width:720px) { .generator-card { display:none; } }
