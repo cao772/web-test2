@@ -1,0 +1,23 @@
+@import url('./brain-v9.css');
+
+.reflection-card {
+  grid-column: 1 / -1;
+  border-radius: 14px;
+  padding: 10px;
+  background: rgba(255,255,255,.42);
+  border: 1px solid rgba(255,255,255,.54);
+}
+.reflection-card.accepted { background: rgba(168,207,193,.18); }
+.reflection-card.rejected { background: rgba(242,170,131,.13); }
+body.night .reflection-card { background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.08); }
+.reflection-head { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.reflection-head b { font-size:9px; letter-spacing:.04em; }
+.reflection-head span { font-size:7.5px; opacity:.55; }
+.reflection-metrics { display:grid; grid-template-columns:repeat(3,1fr); gap:5px; margin-top:7px; }
+.reflection-metrics span { padding:4px 5px; border-radius:7px; text-align:center; font-size:7px; background:rgba(91,69,55,.055); opacity:.68; }
+body.night .reflection-metrics span { background:rgba(255,255,255,.045); }
+.reflection-loss { margin-top:6px; font-size:7.5px; font-weight:700; color:#8d6559; }
+body.night .reflection-loss { color:#efb8a5; }
+.reflection-card p { margin:5px 0 0; font-size:7.5px; line-height:1.45; opacity:.68; }
+.reflection-card small { display:block; margin-top:4px; font-size:6.8px; opacity:.42; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+@media (max-width:720px){.reflection-card{display:none}}
