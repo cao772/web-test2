@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#f3e8d4" />
-    <meta name="description" content="一个拥有长期记忆、自适应偏好、满意度学习与自主决策的 3D 微缩智能体小世界" />
-    <title>小小世界 · Adaptive Memory Agent World</title>
-    <link rel="stylesheet" href="/src/brain-v8.css" />
+    <meta name="description" content="一个会学习自身 Planner 权重、保留长期记忆并受边界约束的 3D 自改进智能体小世界" />
+    <title>小小世界 · Strategy Learning Agent World</title>
+    <link rel="stylesheet" href="/src/brain-v9.css" />
   </head>
   <body>
     <div id="app">
@@ -18,8 +18,8 @@
         <div class="brand-card glass">
           <div class="brand-mark">✦</div>
           <div>
-            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V8</span></div>
-            <p id="statusText">陶陶和沫沫会根据需求、长期记忆和过去体验效果决定下一步</p>
+            <div class="brand-row"><strong>小小世界</strong><span class="live-dot">V9</span></div>
+            <p id="statusText">陶陶和沫沫会记录 Planner 为什么这样选，并用结果微调决策策略</p>
           </div>
         </div>
 
@@ -33,17 +33,17 @@
 
       <aside class="toybox glass">
         <div class="toybox-title">
-          <div><span>玩具百宝箱</span><em id="autoBadge">长期学习中</em></div>
-          <small>世界事件优先 · 再按需求、经验与学习偏好决策</small>
+          <div><span>玩具百宝箱</span><em id="autoBadge">策略学习中</em></div>
+          <small>硬规则固定 · 软策略根据长期回报受控自我调整</small>
         </div>
         <div id="toyButtons" class="toy-buttons"></div>
       </aside>
 
-      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆与学习偏好"></aside>
+      <aside id="brainPanel" class="brain-panel glass" aria-label="角色需求、长期记忆与 Planner 策略学习"></aside>
 
-      <div class="hint glass">右下角看长期偏好与满意度 · 每次完整体验都会微调权重 · 刷新页面学习结果仍保留</div>
+      <div class="hint glass">右下角看 Planner 权重与最近策略回报 · 手动点击只教偏好，不修改决策策略 · 学习结果刷新后保留</div>
       <div id="toast" class="toast glass" role="status"></div>
     </div>
-    <script type="module" src="/src/main-v8.ts"></script>
+    <script type="module" src="/src/main-v9.ts"></script>
   </body>
 </html>
